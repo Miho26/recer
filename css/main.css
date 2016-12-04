@@ -1,0 +1,90 @@
+body{
+
+}
+#input{
+	margin: 10px auto;
+	text-align: center;
+}
+.insert{
+	display: inline-block;
+
+}
+
+
+#container{
+	margin: auto;
+	padding: auto;
+	width: 90%;
+	/*background-color: #468264;*/
+
+}
+
+.nav{
+	margin: 10px auto;
+	width: 90%;
+	list-style: none;
+	text-align: center;
+	background-color: #468264;
+	text-decoration: none;
+}
+.nav li{
+	display: inline-block;
+
+}
+a.section{
+	padding: 10px;
+	display: inline-block;
+	text-decoration: none;
+	color: pink;
+
+}
+#content{
+	margin: 10px auto;
+	padding: 20px;
+	width: 90%;
+	background-color: #468264;
+}
+
+.text{
+	font-size: 0;
+}
+
+.active{
+	font-size: 20px;
+	color: lightblue;
+}
+.box{
+	margin: 10px auto;
+	width: 90%;
+	text-align: center;
+	background-color: #468264;
+	text-decoration: none;
+	display: none;
+
+}
+.box.activeBox{
+	display: block;
+
+}
+.activeBox a{
+	text-decoration: none;
+	color: black;
+}
+a.editDustHide{
+	display: none;
+}
+a.editDust{
+	display: inline-block;
+}
+
+a.edit{
+	display: inline-block;
+	color: silver;
+}
+.hiddenform{
+	display: none;
+}
+.seeform{
+	display: inline-block;
+}
+
