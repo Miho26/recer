@@ -30,6 +30,7 @@ try {
 	$pdo = new PDO ($dsn, $db_user, $db_pass);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 	$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	$pdo->beginTransaction();
 
 	$titlAll = array();
 	$textAll = array();
@@ -49,7 +50,21 @@ try {
 	  		$textAll[] = ${'contents'. $i}[$j]["text"];
 	  	}
   	}
+
+  	if($_POST){
+        $sql_edit = "UPDATE recer.contents SET title = :editTitle, text = :editText WHERE id = :editId";
+        $stmh = $pdo->prepare($sql_edit);
+        $stmh->bindValue(':editId', $_POST['editId'], PDO::PARAM_INT);
+        $stmh->bindValue(':editTitle', $_POST['editTitle'], PDO::PARAM_STR);
+        $stmh->bindValue(':editText', $_POST['editText'], PDO::PARAM_STR);
+        $stmh->execute();
+        header("Location: ../rec");
+    }
+    $pdo->commit();
+
+
 } catch (PDOException $e){
+
  	 print "エラー : " . $e->getMessage();
 }
 
@@ -74,9 +89,10 @@ try {
 					<?php echo $contents0[$i]['title']; ?>
 					</a>
 
-					<form action="../rec" method="post"  class="hiddenform" id="form_<?php echo $contents0[$i]['id']; ?>">
-						<input  type="text" value="<?php echo $contents0[$i]['title'];?>">
-						<textarea name="" id="" cols="30" rows="5" ><?php echo $contents0[$i]['text']; ?></textarea>
+					<form action="<?= $_SERVER["PHP_SELF"]; ?>" method="post" class="hiddenform" id="form_<?php echo $contents0[$i]['id']; ?>" >
+						<input type="hidden" value="<?php echo $contents0[$i]['id']; ?>" name="editId">
+						<input  type="text" value="<?php echo $contents0[$i]['title'];?>" name="editTitle">
+						<textarea name="editText" cols="30" rows="5" name="editText"><?php echo $contents0[$i]['text']; ?></textarea>
 						<input type="submit" value="編集">
 					</form>
 
@@ -125,6 +141,8 @@ try {
 		</div>
 	</div>
 <script src="js/main.js"></script>
+
+
 </body>
 </html>
 
