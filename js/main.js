@@ -33,7 +33,6 @@ for( j = 0; j < title.length; j++){
 		for(i = 0; i < text.length; i++){
 			text[i].className = 'text';
 		}
-
 		
 		if(document.getElementById(this.dataset.id).className == 'text'){
 			document.getElementById(this.dataset.id).className = 'active';
@@ -42,6 +41,8 @@ for( j = 0; j < title.length; j++){
 		}
 	});
 }
+
+
 var edit = document.getElementsByClassName('edit');
 var k;
 for(k = 0; k < edit.length; k++){
