@@ -71,6 +71,29 @@ for(l = 0; l < editDust.length; l++){
 	});
 }
 
+var trashlink = document.getElementsByClassName('trashlink');
+var m;
+for(m = 0; m < trashlink.length; m++){
+	trashlink[m].addEventListener('click', function(e){
+		e.preventDefault;
+
+		var confirm = window.confirm('このデータを削除しますか？');
+
+		if(confirm){
+			document.getElementById(this.dataset.id).submit();
+		}
+	
+
+	});
+}
+
+
+
+
+
+
+
+
 
 		
 
