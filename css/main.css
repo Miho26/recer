@@ -77,10 +77,16 @@ a.editDust{
 	display: inline-block;
 }
 
+
 a.edit{
 	display: inline-block;
 	color: silver;
 }
+a.trash{
+	display: inline-block;
+	color: silver;
+}
+
 .hiddenform{
 	display: none;
 }
