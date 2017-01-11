@@ -10,9 +10,9 @@ class Edit{
 
 
 	public function __construct(){
-		$db_user = "matsuko";
-		$db_pass = "matsuko";
-		$db_host = "127.0.0.1";
+		$db_user = "";
+		$db_pass = "";
+		$db_host = "";
 		$db_name = "recer";
 		$db_type = "mysql";
 
